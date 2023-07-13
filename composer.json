@@ -8,10 +8,9 @@
             "name": "laravesl"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
-        "spatie/laravel-permission": "^4|^5|^6",
-        "jackiedo/dotenv-editor": "^2"
+
     },
     "autoload": {
         "psr-4": {
