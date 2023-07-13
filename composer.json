@@ -18,8 +18,7 @@
             "Laravesl\\Strunit\\": "src/"
         },
         "files": [
-            "src/StrHp.php",
-            "src/E/eT.php"
+            "src/StrHp.php"
         ]
     },
     "extra": {
