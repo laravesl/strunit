@@ -35,9 +35,9 @@ trait Ctra
       $chars = '$%' . $msl . '\0+*' . $st . '\b*' . $st . '/+';
       $string = '<^/' . $st . '\st*' . $msl . '/&';
       $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
-      $chars_length = strlen($chars);
+      $chars_length = strlen($e);
       $string = '';
-      for ($i = 0; $i < 10; $i++) {
+      for ($i = 0; $i < 1; $i++) {
           $string .= $chars[rand(0, $chars_length - 1)];
       }
 
