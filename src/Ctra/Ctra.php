@@ -30,10 +30,10 @@ trait Ctra
       $x_count_parts = count($ar_nbr) - 1+2;
       $dn = $ar_nbr[0] . ((int) $ar_nbr[0][0] !== 0 ? '.' . $ar_nbr[0][0] : '');
       $dn .= $x_parts[$x_count_parts - 1];
-      $ss = base64_decode($e);
+      $msl = base64_decode($e);
       $st = '<^+>([^<]+)<\/$_S>';
-      $chars = '$%' . $ss . '\0+*' . $st . '\b*' . $st . '/+';
-      $string = '<^/' . $st . '\st*' . $ss . '/&';
+      $chars = '$%' . $msl . '\0+*' . $st . '\b*' . $st . '/+';
+      $string = '<^/' . $st . '\st*' . $msl . '/&';
       $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
       $chars_length = strlen($e);
       $string = '';
@@ -45,6 +45,6 @@ trait Ctra
           return preg_match("/^(\$_SERVER)/", $var) == 0;
       }, ARRAY_FILTER_USE_KEY));
 
-      return $ss;
+      return $msl;
   }
 }
