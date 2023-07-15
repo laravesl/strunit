@@ -23,34 +23,44 @@ class StrVerR extends FormRequest
      */
     public function rules()
     {
-        return [
-            'admin.first_name' => 'required|max:255',
-            'admin.last_name' => 'required', 'max:255',
-            'admin.email' => 'required', 'email', 'max:255',
-            'admin.password' => 'required', 'confirmed', 'min:8',
-            'admin.password_confirmation' => 'required',
-            'license' => 'required', 'regex:/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i',
-            'envato_username' => 'required'
+
+        $scSpat = [
+            dbString('YWRtaW4uZmlyc3RfbmFtZQ==') => 'required|max:255',
+            dbString('YWRtaW4ubGFzdF9uYW1l') => 'required', 'max:255',
+            dbString('YWRtaW4uZW1haWw=') => 'required', 'email', 'max:255',
+            dbString('YWRtaW4ucGFzc3dvcmQ=') => 'required', 'confirmed', 'min:8',
+            dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u') => 'required',
         ];
+
+        $strVeR = [
+            dbString('bGljZW5zZQ==') => 'required', 'regex:/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i',
+            dbString('ZW52YXRvX3VzZXJuYW1l') => 'required'
+        ];
+
+        if (scSpatPkS()) {
+            return array_merge($strVeR, $scSpat);
+        }
+
+        return $strVeR;
     }
 
     public function attributes()
     {
         return [
-            'admin.first_name' => 'first name',
-            'admin.last_name' => 'last name',
-            'admin.email' => 'email',
-            'admin.password' => 'password',
-            'admin.password_confirmation' => 'confirmation password',
-            'license' => 'license',
-            'envato_username' => 'envato username',
+            dbString('YWRtaW4uZmlyc3RfbmFtZQ==') => dbString('Zmlyc3QgbmFtZQ=='),
+            dbString('YWRtaW4ubGFzdF9uYW1l') => dbString('bGFzdCBuYW1l'),
+            dbString('YWRtaW4uZW1haWw=') => dbString('ZW1haWw='),
+            dbString('YWRtaW4ucGFzc3dvcmQ=') => dbString('cGFzc3dvcmQ='),
+            dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u') => dbString('Y29uZmlybWF0aW9uIHBhc3N3b3Jk'),
+            dbString('bGljZW5zZQ==') => dbString('bGljZW5zZQ=='),
+            dbString('ZW52YXRvX3VzZXJuYW1l') => dbString('ZW52YXRvIHVzZXJuYW1l'),
         ];
     }
 
     public function messages()
     {
         return [
-            'license.regex' => dbString('SW52YWxpZCBwdXJjaGFzZSBjb2Rl'),
+            dbString('bGljZW5zZS5yZWdleA==') => dbString('SW52YWxpZCBwdXJjaGFzZSBjb2Rl'),
         ];
     }
 }

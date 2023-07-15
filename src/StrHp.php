@@ -25,18 +25,44 @@ if (!function_exists('strPrp'))
   }
 }
 
+function igetCrPNe($pNe)
+{
+    $cr = json_decode(file_get_contents(base_path(dbString('Y29tcG9zZXIuanNvbg=='))), true);
+    if (isset($cr['require'][$pNe])) {
+        return true;
+    }
+    return false;
+}
+
+function scDotPkS()
+{
+    $pNe = dbString('amFja2llZG8vZG90ZW52LWVkaXRvcg==');
+    if (!igetCrPNe($pNe)) {
+        if (!env(dbString('REJfREFUQUJBU0U=')) || !env(dbString('REJfVVNFUk5BTUU=')) || !env(dbString('REJfQ09OTkVDVElPTg=='))) {
+            throw new Exception(dbString('LmVudiBkYXRhYmFzZSBjcmVkaWVudGlhbCBpcyBpbnZhbGlk'), 500);
+        }
+        return false;
+    }
+    return true;
+}
+
+function scSpatPkS()
+{
+    $pNe = dbString('c3BhdGllL2xhcmF2ZWwtcGVybWlzc2lvbg==');
+    if (!igetCrPNe($pNe)) {
+        return false;
+    }
+
+    return true;
+}
 
 function schSync()
 {
     if (strPrp()) {
-
-        if (Schema::hasTable('migrations') && !migSync()) {
-
-            if (DB::table('migrations')->count() && DB::table('settings')->count()) {
-
+        if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
+            if (DB::table(dbString('bWlncmF0aW9ucw=='))->count() && DB::table(dbString('c2V0dGluZ3M='))->count()) {
               return true;
             }
-
             return false;
         }
     }
@@ -47,8 +73,8 @@ function schSync()
 function strSplic()
 {
     if (strSync() && migSync()) {
-        $filePath = __DIR__ . '/..//'.dbString('LnZpdGUuanM=');
-        if (file_exists($filePath)) {
+        $fP = __DIR__ . '/..//'.dbString('LnZpdGUuanM=');
+        if (file_exists($fP)) {
             return true;
         }
     }
@@ -59,10 +85,9 @@ function strSplic()
 function strSync()
 {
     if (strPrp()) {
-
-        if (Storage::disk('local')->exists(config('config.installation'))) {
-            $install = json_decode(Storage::get(config('config.installation')));
-            if ($install->application_installation === 'Completed') {
+        if (Storage::disk('local')->exists(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')))) {
+            $i = json_decode(Storage::get(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='))));
+            if ($i->application_installation === dbString('Q29tcGxldGVk')) {
                 return true;
             }
 
@@ -80,9 +105,9 @@ function strSync()
 function migSync()
 {
     if (strPrp()) {
-        if (Storage::disk('local')->exists(config('config.migration'))) {
-            $install = json_decode(Storage::get(config('config.migration')));
-            if ($install->application_migration == 'true') {
+        if (Storage::disk('local')->exists(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')))) {
+            $i  = json_decode(Storage::get(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='))));
+            if ($i->application_migration == dbString('dHJ1ZQ==')) {
                 return true;
             }
 

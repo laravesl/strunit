@@ -2,6 +2,7 @@
 
 namespace Laravesl\Strunit\StringyPr;
 
+use Exception;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Laravesl\Strunit\StringMed\StMed;
@@ -57,5 +58,6 @@ class Stp extends ServiceProvider
         ]);
         $this->app->register(StrEn::class);
         $this->app->register(StrAs::class);
+        scDotPkS();
     }
 }

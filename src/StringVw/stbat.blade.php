@@ -2,77 +2,85 @@
 @section('title', dbString('RGF0YWJhc2U='))
 @section(dbString('Y29udGVudA=='))
     @rlStingy('PGRpdiBjbGFzcz0id2l6YXJkLXN0ZXAtMyBkLWJsb2NrIj4=')
-        <form action="{{ route('install.database.config') }}" method=@rlStingy('UE9TVA==')>
+        <form action="{{ route(dbString('aW5zdGFsbC5kYXRhYmFzZS5jb25maWc=')) }}" method=@rlStingy('UE9TVA==')>
             @csrf
             @method(dbString('UE9TVA=='))
-            @rlStingy('PGRpdiBjbGFzcz0icm93Ij4NCg0KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImRhdGFiYXNlLWZpZWxkIGNvbC1tZC02Ij4NCiAgICAgICAgICAgICAgICAgICAgPGg2PlBsZWFzZSBlbnRlciB5b3VyIGRhdGFiYXNlIGNvbmZpZ3VyYXRpb24gZGV0YWlscyBiZWxvdy48L2g2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5Ib3N0IDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="text" name="database[DB_HOST]"
-                                value="{{ old('database.DB_HOST') ? old('database.DB_HOST') : '127.0.0.1' }}"
-                                class="form-control" placeholder="127.0.0.1" autocomplete="off">
-                            @if ($errors->has('database.DB_HOST'))
-                                <span class="text-danger">{{ $errors->first('database.DB_HOST') }}</span>
+            @rlStingy('PGRpdiBjbGFzcz0icm93Ij4=')
+            @if (scDotPkS())
+            @rlStingy('PGRpdiBjbGFzcz0iZGF0YWJhc2UtZmllbGQgY29sLW1kIj4=')
+            @rlStingy('PGg2PlBsZWFzZSBlbnRlciB5b3VyIGRhdGFiYXNlIGNvbmZpZ3VyYXRpb24gZGV0YWlscyBiZWxvdy48L2g2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5Ib3N0IDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
+                           @rlStingy('IDxpbnB1dCB0eXBlPSJ0ZXh0IiBuYW1lPSJkYXRhYmFzZVtEQl9IT1NUXSI')
+                                value="{{ old(dbString('ZGF0YWJhc2UuREJfSE9TVA==')) ? old(dbString('ZGF0YWJhc2UuREJfSE9TVA==')) : '127.0.0.1' }}"
+                                @rlStingy('Y2xhc3M9ImZvcm0tY29udHJvbCIgcGxhY2Vob2xkZXI9IjEyNy4wLjAuMSIgYXV0b2NvbXBsZXRlPSJvZmYiPg')
+                            @if ($errors->has(dbString('ZGF0YWJhc2UuREJfSE9TVA==')))
+                                @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('ZGF0YWJhc2UuREJfSE9TVA==')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5Qb3J0PHNwYW4gY2xhc3M9InJlcXVpcmVkLWZpbGwiPio8L3NwYW4+PC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXY+')
-                            <input type="number" name="database[DB_PORT]"
-                                value="{{ old('database.DB_PORT') ? old('database.DB_PORT') : '3306' }}"
-                                class="form-control" placeholder="3306" autocomplete="off">
-                            @if ($errors->has('database.DB_PORT'))
-                                <span class="text-danger">{{ $errors->first('database.DB_PORT') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9Im51bWJlciIgbmFtZT0iZGF0YWJhc2VbREJfUE9SVF0i')
+                                value="{{ old(dbString('ZGF0YWJhc2UuREJfUE9SVA==')) ? old(dbString('ZGF0YWJhc2UuREJfUE9SVA==')) : '3306' }}"
+                               @rlStingy('IGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSIzMzA2IiBhdXRvY29tcGxldGU9Im9mZiI+')
+                            @if ($errors->has(dbString('ZGF0YWJhc2UuREJfUE9SVA==')))
+                            @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('ZGF0YWJhc2UuREJfUE9SVA==')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5EQiBVc2VybmFtZTxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="text" name="database[DB_USERNAME]" value="{{ old('database.DB_USERNAME') }}"
-                                class="form-control" autocomplete="off">
-                            @if ($errors->has('database.DB_USERNAME'))
-                                <span class="text-danger">{{ $errors->first('database.DB_USERNAME') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9InRleHQiIG5hbWU9ImRhdGFiYXNlW0RCX1VTRVJOQU1FXSIg') value="{{ old(dbString('ZGF0YWJhc2UuREJfVVNFUk5BTUU=')) }}"
+                                @rlStingy('Y2xhc3M9ImZvcm0tY29udHJvbCIgYXV0b2NvbXBsZXRlPSJvZmYiPg==')
+                            @if ($errors->has(dbString('ZGF0YWJhc2UuREJfVVNFUk5BTUU=')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('ZGF0YWJhc2UuREJfVVNFUk5BTUU=')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5EQiBQYXNzd29yZDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="password" name="database[DB_PASSWORD]" class="form-control" autocomplete="off">
-                            @if ($errors->has('database.DB_PASSWORD'))
-                                <span class="text-danger">{{ $errors->first('database.DB_PASSWORD') }}</span>
+                           @rlStingy('IDxpbnB1dCB0eXBlPSJwYXNzd29yZCIgbmFtZT0iZGF0YWJhc2VbREJfUEFTU1dPUkRdIiBjbGFzcz0iZm9ybS1jb250cm9sIiBhdXRvY29tcGxldGU9Im9mZiI+')
+                            @if ($errors->has(dbString('ZGF0YWJhc2UuREJfUEFTU1dPUkQ=')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('ZGF0YWJhc2UuREJfUEFTU1dPUkQ=')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5EYXRhYmFzZSBOYW1lPHNwYW4gY2xhc3M9InJlcXVpcmVkLWZpbGwiPio8L3NwYW4+PC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXY+')
-                                <input type="text" name="database[DB_DATABASE]" value="{{ old('database.DB_DATABASE') }}"
-                                class="form-control"  autocomplete="off">
-                            @if ($errors->has('database.DB_DATABASE'))
-                                <span class="text-danger">{{ $errors->first('database.DB_DATABASE') }}</span>
+                               @rlStingy('IDxpbnB1dCB0eXBlPSJ0ZXh0IiBuYW1lPSJkYXRhYmFzZVtEQl9EQVRBQkFTRV0i') value="{{ old(dbString('ZGF0YWJhc2UuREJfREFUQUJBU0U=')) }}"
+                                @rlStingy('Y2xhc3M9ImZvcm0tY29udHJvbCIgIGF1dG9jb21wbGV0ZT0ib2ZmIj4=')
+                            @if ($errors->has(dbString('ZGF0YWJhc2UuREJfREFUQUJBU0U=')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('ZGF0YWJhc2UuREJfREFUQUJBU0U=')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
-                       @rlStingy('IDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJkYXRhYmFzZS1maWVsZCBjb2wtbWQtNiI+DQogICAgICAgICAgICAgICAgICAgIDxoNj5QbGVhc2UgZW50ZXIgeW91ciBhZG1pbmlzdHJhdGlvbiBkZXRhaWxzIGJlbG93LjwvaDY+DQogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAgZm9ybS1yb3ciPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGxhYmVsPkZpcnN0IE5hbWUgPHNwYW4gY2xhc3M9InJlcXVpcmVkLWZpbGwiPio8L3NwYW4+PC9sYWJlbD4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXY+')
-                            <input type="text" name="admin[first_name]" value="{{ old('admin.first_name') }}"
-                                class="form-control" autocomplete="off">
-                            @if ($errors->has('admin.first_name'))
-                                <span class="text-danger">{{ $errors->first('admin.first_name') }}</span>
+
+                        @rlStingy('IDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgICAgICA8L2Rpdj4=')
+                @endif
+                @if(scSpatPkS())
+                @rlStingy('PGRpdiBjbGFzcz0iZGF0YWJhc2UtZmllbGQgY29sLW1kIj4NCg==')
+                       @rlStingy('PGg2PlBsZWFzZSBlbnRlciB5b3VyIGFkbWluaXN0cmF0aW9uIGRldGFpbHMgYmVsb3cuPC9oNj4NCiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCBmb3JtLXJvdyI+DQogICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWw+Rmlyc3QgTmFtZSA8c3BhbiBjbGFzcz0icmVxdWlyZWQtZmlsbCI+Kjwvc3Bhbj48L2xhYmVsPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdj4=')
+                            @rlStingy('PGlucHV0IHR5cGU9InRleHQiIG5hbWU9ImFkbWluW2ZpcnN0X25hbWVdIiA=') value="{{ old(dbString('YWRtaW4uZmlyc3RfbmFtZQ==')) }}"
+                                @rlStingy('Y2xhc3M9ImZvcm0tY29udHJvbCIgYXV0b2NvbXBsZXRlPSJvZmYiPg==')
+                            @if ($errors->has(dbString('YWRtaW4uZmlyc3RfbmFtZQ==')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('YWRtaW4uZmlyc3RfbmFtZQ==')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5MYXN0IE5hbWU8c3BhbiBjbGFzcz0icmVxdWlyZWQtZmlsbCI+Kjwvc3Bhbj48L2xhYmVsPg0KICAgICAgICAgICAgICAgICAgICAgICAgPGRpdj4=')
-                            <input type="text" name="admin[last_name]" value="{{ old('admin.last_name') }}"
-                                class="form-control" autocomplete="off">
-                            @if ($errors->has('admin.last_name'))
-                                <span class="text-danger">{{ $errors->first('admin.last_name') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9InRleHQiIG5hbWU9ImFkbWluW2xhc3RfbmFtZV0i') value="{{ old(dbString('YWRtaW4ubGFzdF9uYW1l')) }}"
+                                @rlStingy('Y2xhc3M9ImZvcm0tY29udHJvbCIgYXV0b2NvbXBsZXRlPSJvZmYiPg==')
+                            @if ($errors->has(dbString('YWRtaW4ubGFzdF9uYW1l')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('YWRtaW4ubGFzdF9uYW1l')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5FbWFpbDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="email" name="admin[email]" value="{{ old('admin.email') }}" class="form-control"
-                                autocomplete="off">
-                            @if ($errors->has('admin.email'))
-                                <span class="text-danger">{{ $errors->first('admin.email') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9ImVtYWlsIiBuYW1lPSJhZG1pbltlbWFpbF0i') value="{{ old(dbString('YWRtaW4uZW1haWw=')) }}" @rlStingy('IGNsYXNzPSJmb3JtLWNvbnRyb2wiIGF1dG9jb21wbGV0ZT0ib2ZmIj4=')
+                            @if ($errors->has(dbString('YWRtaW4uZW1haWw=')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('YWRtaW4uZW1haWw=')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5QYXNzd29yZDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="password" name="admin[password]" class="form-control" autocomplete="off">
-                            @if ($errors->has('admin.password'))
-                                <span class="text-danger">{{ $errors->first('admin.password') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9InBhc3N3b3JkIiBuYW1lPSJhZG1pbltwYXNzd29yZF0iIGNsYXNzPSJmb3JtLWNvbnRyb2wiIGF1dG9jb21wbGV0ZT0ib2ZmIj4=')
+                            @if ($errors->has(dbString('YWRtaW4ucGFzc3dvcmQ=')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('YWRtaW4ucGFzc3dvcmQ=')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIGZvcm0tcm93Ij4NCiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbD5Db25maXJtIFBhc3N3b3JkIDxzcGFuIGNsYXNzPSJyZXF1aXJlZC1maWxsIj4qPC9zcGFuPjwvbGFiZWw+DQogICAgICAgICAgICAgICAgICAgICAgICA8ZGl2Pg==')
-                            <input type="password" name="admin[password_confirmation]" class="form-control"
-                                autocomplete="off">
-                            @if ($errors->has('admin.password_confirmation'))
-                                <span class="text-danger">{{ $errors->first('admin.password_confirmation') }}</span>
+                            @rlStingy('PGlucHV0IHR5cGU9InBhc3N3b3JkIiBuYW1lPSJhZG1pbltwYXNzd29yZF9jb25maXJtYXRpb25dIiBjbGFzcz0iZm9ybS1jb250cm9sIiBhdXRvY29tcGxldGU9Im9mZiI+')
+                            @if ($errors->has(dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u')))
+                               @rlStingy('PHNwYW4gY2xhc3M9InRleHQtZGFuZ2VyIj4='){{ $errors->first(dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u')) }}@rlStingy('PC9zcGFuPg==')
                             @endif
+                      @rlStingy('ICA8L2Rpdj4NCiAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgPC9kaXY+')
+                @endif
+            @rlStingy('PC9kaXY+DQogICAgICAgIDwvZm9ybT4NCiAgICAgICAgPGRpdiBjbGFzcz0ibmV4dC1idG4gZC1mbGV4Ij4=')
                         @rlStingy('PC9kaXY+DQogICAgICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgICAgPC9kaXY+DQogICAgICAgIDwvZm9ybT4NCiAgICAgICAgPGRpdiBjbGFzcz0ibmV4dC1idG4gZC1mbGV4Ij4=')
 
-            <a href="{{ route('install.license') }}" class="btn btn-primary"><i class="far fa-hand-point-left me-2"></i>
-                Previous</a>
+            <a href="{{ route(dbString('aW5zdGFsbC5saWNlbnNl')) }}" @rlStingy('Y2xhc3M9ImJ0biBidG4tcHJpbWFyeSI+PGkgY2xhc3M9ImZhciBmYS1oYW5kLXBvaW50LWxlZnQgbWUtMiI+PC9pPg0KICAgICAgICAgICAgICAgIFByZXZpb3VzPC9hPg==')
             @rlStingy('PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKDApIiBjbGFzcz0iYnRuIGJ0bi1wcmltYXJ5IHN1bWl0LWZvcm0iPk5leHQ8aQ0KICAgICAgICAgICAgICAgICAgICBjbGFzcz0iZmFyIGZhLWhhbmQtcG9pbnQtcmlnaHQgbXMtMiI+PC9pPjwvYT4=')
-        </div>
-    </div>
+       @rlStingy('IDwvZGl2Pg0K')
+       @rlStingy('IDwvZGl2Pg0K')
 @endsection
-@section('scripts')
+@section(dbString('c2NyaXB0cw=='))
    @rlStingy('IDxzY3JpcHQ+DQogICAgICAgICQoIi5zdW1pdC1mb3JtIikuY2xpY2soZnVuY3Rpb24oKSB7DQogICAgICAgICAgICAkKCJmb3JtIikuc3VibWl0KCk7DQogICAgICAgIH0pOw0KICAgIDwvc2NyaXB0Pg==')
 @endsection

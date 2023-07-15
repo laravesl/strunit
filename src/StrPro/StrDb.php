@@ -54,21 +54,22 @@ class StrDb
         Artisan::call('config:clear');
     }
 
-    public function adminSetup($admin, $database = null)
+    public function adminSetup($a, $database = null)
     {
+
         $role = Role::where('name', 'Admin')->first();
         if (!$role) {
             $role = Role::create(['name' => 'Admin']);
         }
 
         $role->givePermissionTo(Permission::all());
-        $user = User::where('email',  $admin['email'])->first();
+        $user = User::where('email',  $a['email'])->first();
         if (!$user) {
             $user = User::factory()->create([
-                'name' => $admin['first_name'].''.$admin['last_name'],
-                'email' => $admin['email'],
+                'name' => $a['first_name'].''.$a['last_name'],
+                'email' => $a['email'],
                 'email_verified_at' => now(),
-                'password' => Hash::make($admin['password']),
+                'password' => Hash::make($a['password']),
             ]);
         }
 

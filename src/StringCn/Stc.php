@@ -1,5 +1,35 @@
 <?php
 
 return [
-    dbString('J25hbWUnID0+ICdJbnN0YWxsJywNCiAgICAnY29uZmlndXJhdGlvbicgPT4gWw0KICAgICAgICAndmVyc2lvbicgPT4gWw0KICAgICAgICAgICAgJ1BIUCA+PSA4LjEnID0+ICc4LjEnLA0KICAgICAgICBdLA0KICAgICAgICAnZXh0ZW5zaW9ucycgPT4gWw0KICAgICAgICAgICAgJ0JjbWF0aCcsDQogICAgICAgICAgICAnQ3R5cGUnLA0KICAgICAgICAgICAgJ2ZpbGVpbmZvJywNCiAgICAgICAgICAgICdKU09OJywNCiAgICAgICAgICAgICdNYnN0cmluZycsDQogICAgICAgICAgICAnT3BlbnNzbCcsDQogICAgICAgICAgICAnUGRvJywNCiAgICAgICAgICAgICdUb2tlbml6ZXInLA0KICAgICAgICAgICAgJ1htbCcsDQogICAgICAgIF0sDQogICAgXSwNCiAgICAnd3JpdGFibGVzJyA9PiBbDQogICAgICAgICdzdG9yYWdlJywNCiAgICAgICAgJ2Jvb3RzdHJhcC9jYWNoZScsDQogICAgXSwNCiAgICAnbWlncmF0aW9uJyA9PiAnLm1pZ3JhdGlvbicsDQogICAgJ2tleScgPT4gJycsDQogICAgJ2RvbWFpbicgPT4gJycsDQogICAgJ2FwcCcgPT4gWw0KICAgICAgICAnQVBQX05BTUUnID0+ICdDaGF0bG9vcCcsDQogICAgICAgICdBUFBfRU5WJyA9PiAnJywNCiAgICAgICAgJ0FQUF9ERUJVRycgPT4gJ3RydWUnLA0KICAgICAgICAnQVBQX1VSTCcgPT4gJ2h0dHA6Ly8xMjcuMC4wLjE6ODAwMCcsDQogICAgXSwNCg0KICAgICdpbnN0YWxsYXRpb24nID0+ICdpbnN0YWxsYXRpb24uanNvbics')
+    dbString('bmFtZQ==') => dbString('SW5zdGFsbA=='),
+    dbString('Y29uZmlndXJhdGlvbg==') => [
+        dbString('dmVyc2lvbg==') => [
+            dbString('UEhQID49IDguMQ==') => dbString('OC4x'),
+        ],
+        dbString('ZXh0ZW5zaW9ucw==') => [
+            dbString('QmNtYXRo'),
+            dbString('Q3R5cGU='),
+            dbString('ZmlsZWluZm8='),
+            dbString('SlNPTg=='),
+            dbString('TWJzdHJpbmc='),
+            dbString('T3BlbnNzbA=='),
+            dbString('UGRv'),
+            dbString('VG9rZW5pemVy'),
+            dbString('WG1s'),
+        ],
+    ],
+    dbString('d3JpdGFibGVz') => [
+        dbString('c3RvcmFnZQ=='),
+        dbString('Ym9vdHN0cmFwL2NhY2hl'),
+    ],
+    dbString('bWlncmF0aW9u') => dbString('Lm1pZ3JhdGlvbg=='),
+    dbString('a2V5') => '',
+    dbString('ZG9tYWlu') => '',
+    dbString('YXBw') => [
+        dbString('QVBQX05BTUU=') => dbString('Q2hhdGxvb3A='),
+        dbString('QVBQX0VOVg==') => '',
+        dbString('QVBQX0RFQlVH') => dbString('dHJ1ZQ=='),
+        dbString('QVBQX1VSTA==') => dbString('aHR0cDovLzEyNy4wLjAuMTo4MDAw'),
+    ],
+    dbString('aW5zdGFsbGF0aW9u') => dbString('aW5zdGFsbGF0aW9uLmpzb24='),
 ];

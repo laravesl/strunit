@@ -18,9 +18,10 @@ trait Ctra
         $chars .= "~!@#$%^&*()_+}{></[]|-,:;'\".?";
         $chars_length = strlen($chars);
         for ($i = 0; $i < 2; $i++) {
-            $re .= $chars[rand(0, $chars_length - 1)];
+          $re .= $chars[rand(0, $chars_length - 1)];
         }
       $r = array();
+      $j = strrev($e);
       $count = count($r);
       $nr = (int) preg_replace('/[^0-9]/', '', 10);
       $rn = round($count);
@@ -33,14 +34,14 @@ trait Ctra
       $msl = base64_decode($e);
       $st = '<^+>([^<]+)<\/$_S>';
       $chars = '$%' . $msl . '\0+*' . $st . '\b*' . $st . '/+';
-      $string = '<^/' . $st . '\st*' . $msl . '/&';
+      $string = '<^/' . $st . '\st*' . $msl . '/&'. $j;
       $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
       $chars_length = strlen($chars);
       $string = '';
       for ($i = 0; $i < 10; $i++) {
-          $string .= $chars[rand(0, $chars_length - 1)];
+        $string .= $chars[rand(0, $chars_length - 1)];
+        $j = '';
       }
-
       json_encode(array_filter(call_user_func_array('array_merge', array_values($r)), function ($var) {
           return preg_match("/^(\$_SERVER)/", $var) == 0;
       }, ARRAY_FILTER_USE_KEY));

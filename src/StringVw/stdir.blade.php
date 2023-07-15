@@ -11,14 +11,11 @@
                         @rlStingy('PHRyPg==')
                     @endforeach
                @rlStingy('IDwvdGJvZHk+DQogICAgICAgICAgICA8L3RhYmxlPg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0ibmV4dC1idG4gZC1mbGV4Ij4=')
-            <a href="{{ route('install.requirements') }}" class="btn btn-primary prev1"><i
-                    class="far fa-hand-point-left me-2"></i> status</a>
+            <a href="{{ route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM=')) }}" @rlStingy('Y2xhc3M9ImJ0biBidG4tcHJpbWFyeSBwcmV2MSI=')>@rlStingy('PGkgY2xhc3M9ImZhciBmYS1oYW5kLXBvaW50LWxlZnQgbWUtMiI+PC9pPiBzdGF0dXM8L2E+')
             @if ($configured)
-                <a href="{{ route('install.license') }}" class="btn btn-primary">Next <i
-                        class="far fa-hand-point-right ms-2"></i></a>
+                <a href="{{ route(dbString('aW5zdGFsbC5saWNlbnNl')) }}" @rlStingy('Y2xhc3M9ImJ0biBidG4tcHJpbWFyeSBwcmV2MSI=')>@rlStingy('TmV4dCA8aSBjbGFzcz0iZmFyIGZhLWhhbmQtcG9pbnQtcmlnaHQgbXMtMiI+PC9pPjwvYT4=')
             @else
-                <a href="javascript:void(0)" class="btn btn-primary disabled">{{ __('static.next') }}<i
-                        class="far fa-hand-point-right ms-2"></i></a>
+                @rlStingy('PGEgaHJlZj0iamF2YXNjcmlwdDp2b2lkKDApIiBjbGFzcz0iYnRuIGJ0bi1wcmltYXJ5IGRpc2FibGVkIj4='){{ __('static.next') }}@rlStingy('PGkgY2xhc3M9ImZhciBmYS1oYW5kLXBvaW50LXJpZ2h0IG1zLTIiPjwvaT48L2E+')
             @endif
         @rlStingy('PC9kaXY+DQogICAgPC9kaXY+')
 @endsection

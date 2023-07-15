@@ -70,15 +70,17 @@ class Co extends Controller
 
     public function stVil(StrVerR $rl)
     {
-
         $rs = $this->li->vl($rl);
         if ($rs->status() != Response::HTTP_OK) {
-            return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
+            return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)[dbString('bWVzc2FnZQ==')]);
         }
 
-        $this->da->adminSetup($rl->all()['admin']);
-        Storage::disk('local')->put(config('config.migration'), json_encode(
-            ['application_migration' => 'true']
+        if (scSpatPkS()) {
+            $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')]);
+        }
+
+        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')), json_encode(
+            [dbString('YXBwbGljYXRpb25fbWlncmF0aW9u') => dbString('dHJ1ZQ==')]
         ));
 
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
@@ -107,17 +109,23 @@ class Co extends Controller
 
     public function CoDatSet(StrConDb $rl)
     {
-        $conn = $this->da->databaseSetup($rl->all()['database']);
+        $conn = $this->da->databaseSetup($rl->all()[dbString('ZGF0YWJhc2U=')]);
         if ($conn != null) {
             return back()->with(dbString('ZXJyb3I='), $conn);
         }
 
-        $this->da->adminSetup($rl->all()['admin'], $rl->all()['database']);
-        Storage::disk('local')->put(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')), json_encode(
-            ['application_migration' => 'true']
+        if (scSpatPkS()) {
+            $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')], $rl->all()[dbString('ZGF0YWJhc2U=')]);
+        }
+
+        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')), json_encode(
+            [dbString('YXBwbGljYXRpb25fbWlncmF0aW9u') => dbString('dHJ1ZQ==')]
         ));
 
-        $this->da->env($rl->all()['database']);
+        if (scDotPkS()) {
+            $this->da->env($rl->all()[dbString('ZGF0YWJhc2U=')]);
+        }
+
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
     }
 
@@ -127,8 +135,8 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
-        Storage::disk('local')->put(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')), json_encode(
-            ['application_installation' => 'Completed']
+        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')), json_encode(
+            [dbString('YXBwbGljYXRpb25faW5zdGFsbGF0aW9u') => dbString('Q29tcGxldGVk')]
         ));
 
         return view(dbString('c3R2Ojpjbw=='));
