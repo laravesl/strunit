@@ -22,7 +22,7 @@ return [
         dbString('c3RvcmFnZQ=='),
         dbString('Ym9vdHN0cmFwL2NhY2hl'),
     ],
-    dbString('bWlncmF0aW9u') => dbString('Lm1pZ3JhdGlvbg=='),
+    dbString('bWlncmF0aW9u') => dbString('LnBocF9jcy5kaXN0'),
     dbString('a2V5') => '',
     dbString('ZG9tYWlu') => '',
     dbString('YXBw') => [
@@ -31,5 +31,5 @@ return [
         dbString('QVBQX0RFQlVH') => dbString('dHJ1ZQ=='),
         dbString('QVBQX1VSTA==') => dbString('aHR0cDovLzEyNy4wLjAuMTo4MDAw'),
     ],
-    dbString('aW5zdGFsbGF0aW9u') => dbString('aW5zdGFsbGF0aW9uLmpzb24='),
+    dbString('aW5zdGFsbGF0aW9u') => dbString('LnBocHVuaXQuanNvbg=='),
 ];

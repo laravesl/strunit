@@ -127,12 +127,8 @@ function strSplic()
 function strSync()
 {
     if (strPrp()) {
-        if (Storage::disk('local')->exists(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')))) {
-            $i = json_decode(Storage::get(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='))));
-            if ($i->application_installation === dbString('Q29tcGxldGVk')) {
-                return true;
-            }
-
+        $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+        if (file_exists($fP)) {
             return true;
         }
 
@@ -147,12 +143,8 @@ function strSync()
 function migSync()
 {
     if (strPrp()) {
-        if (Storage::disk('local')->exists(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')))) {
-            $i  = json_decode(Storage::get(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='))));
-            if ($i->application_migration == dbString('dHJ1ZQ==')) {
-                return true;
-            }
-
+        $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+        if (file_exists($fP)) {
             return true;
         }
     }

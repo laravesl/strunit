@@ -118,9 +118,10 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')], $rl->all()[dbString('ZGF0YWJhc2U=')]);
         }
 
-        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')), json_encode(
-            [dbString('YXBwbGljYXRpb25fbWlncmF0aW9u') => dbString('dHJ1ZQ==')]
-        ));
+        $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+        if (!file_exists($filePath)) {
+            file_put_contents($filePath, null);
+        }
 
         if (scDotPkS()) {
             $this->da->env($rl->all()[dbString('ZGF0YWJhc2U=')]);
@@ -135,9 +136,12 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
-        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')), json_encode(
-            [dbString('YXBwbGljYXRpb25faW5zdGFsbGF0aW9u') => dbString('Q29tcGxldGVk')]
-        ));
+        $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+        if (!file_exists($filePath)) {
+            if (!file_exists($filePath)) {
+                file_put_contents($filePath, null);
+            }
+        }
 
         return view(dbString('c3R2Ojpjbw=='));
     }
