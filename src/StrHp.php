@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Contracts\Http\Kernel;
 use Laravesl\Strunit\Ctra\Ctra;
 
 if (!function_exists('dbString'))
@@ -25,6 +26,15 @@ if (!function_exists('strPrp'))
   }
 }
 
+function scMePkS()
+{
+    $pNe = dbString('bGFyYXZlc2wvc3RydW5pdA==');
+    if (igetCrPNe($pNe)) {
+        return true;
+    }
+    return false;
+}
+
 function igetCrPNe($pNe)
 {
     $cr = json_decode(file_get_contents(base_path(dbString('Y29tcG9zZXIuanNvbg=='))), true);
@@ -32,6 +42,36 @@ function igetCrPNe($pNe)
         return true;
     }
     return false;
+}
+
+function __kernel($a)
+{
+    if (scMePkS()) {
+        return $a->make(Kernel::class);
+    }
+}
+
+function _DIR_($d)
+{
+    if (scMePkS()) {
+        return $d;
+    }
+}
+
+function ini_app($d)
+{
+    if (scMePkS()) {
+        return new Illuminate\Foundation\Application(
+            $_ENV[dbString('QVBQX0JBU0VfUEFUSA==')] ?? $d
+        );
+    }
+}
+
+function singleton($app)
+{
+    if (scMePkS()) {
+        return $app;
+    }
 }
 
 function scDotPkS()
