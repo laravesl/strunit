@@ -59,13 +59,11 @@ function scSpatPkS()
 function schSync()
 {
     if (strPrp()) {
-        if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
-            if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
-                if (DB::table(dbString('bWlncmF0aW9ucw=='))->count() && DB::table(dbString('c2V0dGluZ3M='))->count()) {
-                  return true;
-                }
-                return false;
+        if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
+            if (DB::table(dbString('bWlncmF0aW9ucw=='))->count() && DB::table(dbString('c2V0dGluZ3M='))->count()) {
+              return true;
             }
+            return false;
         }
     }
 
