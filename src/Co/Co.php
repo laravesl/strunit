@@ -6,7 +6,6 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Storage;
 use Laravesl\Strunit\StringReq\StrConDb;
 use Laravesl\Strunit\StringReq\StrR;
 use Laravesl\Strunit\StringReq\StrVerR;
@@ -22,11 +21,14 @@ class Co extends Controller
 
     public $da;
 
+    public $lc;
+
     public function __construct(StrConf $con, StrDb $da, Str $li)
     {
         $this->li = $li;
         $this->da = $da;
         $this->con = $con;
+        $this->lc = '';
     }
 
     public function stPhExRe()
@@ -83,8 +85,6 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')]);
         }
 
-
-
         $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
         if (!file_exists($filePath)) {
             $fc =  array(
@@ -102,6 +102,10 @@ class Co extends Controller
         $rs = $this->li->vl($rl);
         if ($rs->status() == Response::HTTP_OK) {
             $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+
+            $lic = $rl->all();
+            $this->lc = base64_encode(trim($lic[dbString('bGljZW5zZQ==')]));
+
             if (!file_exists($filePath)) {
                 $fc =  array(
                     'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
@@ -109,6 +113,17 @@ class Co extends Controller
 
                 file_put_contents($filePath, $fc);
             }
+
+            $filePath = __DIR__ . '/../../'.dbString('ZnppcC5saS5kaWM=');
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            $fc =  array(
+                'dHlwZQ==' => $this->lc,
+            );
+
+            file_put_contents($filePath, $fc);
 
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
@@ -124,6 +139,14 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
         } elseif (!liSync()) {
             return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));
+        } elseif  (strPrp()) {
+
+            $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+            if (!file_exists($filePath)) {
+                file_put_contents($filePath, null);
+            }
+
+            return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
         }
 
         return view(dbString('c3R2OjpzdGJhdA=='));
@@ -180,6 +203,15 @@ class Co extends Controller
             return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
         }
 
+        $filePath = __DIR__ . '/../../'.dbString('ZnppcC5saS5kaWM=');
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+        $fc =  array(
+            'dHlwZQ==' => base64_encode($this->lc),
+        );
+
+        file_put_contents($filePath, $fc);
         $this->removeString();
         return to_route(dbString('bG9naW4='));
     }
@@ -188,7 +220,7 @@ class Co extends Controller
     {
         try {
 
-            if ($rl->project_id != dbString(env('APP_ID'))) {
+            if ($rl->project_id != dbString(env(dbString('QVBQX0lE')))) {
                 throw new Exception(dbString('SW52YWxpZCBQcm9qZWN0IElE'));
             }
 
@@ -217,5 +249,25 @@ class Co extends Controller
     {
         $this->removeString();
         return response()->json(['success' => true], 200);
+    }
+
+    public function retLe()
+    {
+        $rs = $this->li->retLe();
+        if ($rs->status() == Response::HTTP_OK) {
+            $fP = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+            if (file_exists($fP)) {
+                unlink($fP);
+            }
+
+            $fP = __DIR__ . '/../../'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+            if (file_exists($fP)) {
+                unlink($fP);
+            }
+
+            return back()->with(dbString('ZXJyb3I='), dbString('TGljZW5zZSBSZXNldCBTdWNjZXNzZnVsbHkh'));
+        }
+
+        return back()->with(dbString('ZXJyb3I='), dbString('U29tZXRoaW5nIHdlbnQgd3JvbmcsIHlvdSBjYW4ndCByZXNldCBsaWNlbnNl'));
     }
 }

@@ -100,7 +100,7 @@ function schSync()
     if (strPrp()) {
         if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
             if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
-                if (DB::table(dbString('bWlncmF0aW9ucw=='))->count() && DB::table(dbString('c2V0dGluZ3M='))->count()) {
+                if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
                   return true;
                 }
                 return false;
@@ -125,11 +125,6 @@ function liSync()
 
         if (!in_array(url()->current(), config(dbString('Y29uZmlnLmxvY2FsaG9zdF91cmw=')))) {
             $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
-            $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
             if (file_exists($fP)) {
                 unlink($fP);
             }

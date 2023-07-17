@@ -5,11 +5,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => 'web'], function () {
   Route::get(dbString('dW5ibG9jay97cHJvamVjdF9pZH0='), dbString('Q29AdW5ibG9ja0xpY2Vuc2U='));
   Route::get(dbString('YmxvY2sve3Byb2plY3RfaWR9'), dbString('Q29AYmxvY2tMaWNlbnNl'));
+  Route::post(dbString('cmVzZXRMaWNlbnNl'), dbString('Q29AcmV0TGU='));
 });
 
 Route::group(['namespace' => 'Laravesl\Strunit\Co',  'middleware' => ['stBl', 'web']], function () {
   // block/license/verify & strBloVer
-  Route::post(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('Q29Ac3RyQmxvVmVy'))->name(dbString('aW5zdGFsbC51bmJsb2Nr'));
   Route::get(dbString('YmxvY2s='), dbString('Q29AYmxvY2tTZXR1cA=='))->name(dbString('aW5zdGFsbC5ibG9jay5zZXR1cA=='));
 });
 

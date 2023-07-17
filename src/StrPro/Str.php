@@ -7,6 +7,26 @@ use Illuminate\Support\Facades\Http;
 
 class Str
 {
+    public function retLe()
+    {
+        try {
+
+            $fP = __DIR__ . '/../../'.dbString('ZnppcC5saS5kaWM=');
+            if (file_exists($fP)) {
+                $jD = file_get_contents($fP);
+                if ($jD && isset($jD)) {
+                    return Http::post(dbString('aHR0cHM6Ly9saWNlbnNlLndlYmlvdHMuY28uaW4vYXBpL3Jlc2V0L2xpY2Vuc2U='),[
+                        dbString('a2V5') => dbString($jD)
+                    ]);
+                }
+            }
+
+        } catch (Exception $e) {
+
+            throw $e;
+        }
+    }
+
     public function vl($r)
     {
         try {
