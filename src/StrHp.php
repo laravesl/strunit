@@ -123,7 +123,7 @@ function liSync()
             }
         }
 
-        if (!in_array(url()->current(), config(dbString('Y29uZmlnLmxvY2FsaG9zdF91cmw=')))) {
+        if (!str_contains(url()->current(), dbString('bG9jYWxob3N0')) && !str_contains(url()->current(), dbString('MTI3LjAuMC4x'))) {
             $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
             if (file_exists($fP)) {
                 unlink($fP);
