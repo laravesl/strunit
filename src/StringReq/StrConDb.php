@@ -28,7 +28,6 @@ class StrConDb extends FormRequest
             dbString('ZGF0YWJhc2UuREJfSE9TVA==') => 'required', 'max:255', 'regex:/^\S*$/u',
             dbString('ZGF0YWJhc2UuREJfUE9SVA==') => 'required', 'regex:/^\S*$/u', 'max:10',
             dbString('ZGF0YWJhc2UuREJfVVNFUk5BTUU=') => 'required', 'regex:/^\S*$/u', 'max:255',
-            dbString('ZGF0YWJhc2UuREJfUEFTU1dPUkQ=') => 'required',
             dbString('ZGF0YWJhc2UuREJfREFUQUJBU0U=') => 'required', 'regex:/^\S*$/u', 'max:255',
         ];
 
@@ -36,7 +35,7 @@ class StrConDb extends FormRequest
             dbString('YWRtaW4uZmlyc3RfbmFtZQ==') => 'required', 'max:255',
             dbString('YWRtaW4ubGFzdF9uYW1l') => 'required', 'max:255',
             dbString('YWRtaW4uZW1haWw=') => 'required', 'email', 'max:255',
-            dbString('YWRtaW4ucGFzc3dvcmQ=') => 'required', 'confirmed', 'min:8',
+            dbString('YWRtaW4ucGFzc3dvcmQ=') => 'reuired', 'confirmed', 'min:8',
         ];
 
         if (scDotPkS()) {

@@ -62,6 +62,10 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
         }
 
+        if (liSync()) {
+            return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
+        }
+
         return view(dbString('c3R2OjpzdGxpYw=='), [
             dbString('ZGlyZWN0b3JpZXM=') => $this->con->chWr(),
             dbString('Y29uZmlndXJlZA==') => $this->con->iDconF(),
@@ -79,9 +83,16 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')]);
         }
 
-        Storage::disk(dbString('bG9jYWw='))->put(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')), json_encode(
-            [dbString('YXBwbGljYXRpb25fbWlncmF0aW9u') => dbString('dHJ1ZQ==')]
-        ));
+
+
+        $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+        if (!file_exists($filePath)) {
+            $fc =  array(
+                'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
+            );
+
+            file_put_contents($filePath, $fc);
+        }
 
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
     }
@@ -90,6 +101,15 @@ class Co extends Controller
     {
         $rs = $this->li->vl($rl);
         if ($rs->status() == Response::HTTP_OK) {
+            $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+            if (!file_exists($filePath)) {
+                $fc =  array(
+                    'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
+                );
+
+                file_put_contents($filePath, $fc);
+            }
+
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
@@ -102,6 +122,8 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
         } elseif (!$this->con->iDconF()) {
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
+        } elseif (!liSync()) {
+            return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));
         }
 
         return view(dbString('c3R2OjpzdGJhdA=='));

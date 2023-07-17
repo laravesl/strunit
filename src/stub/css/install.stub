@@ -202,8 +202,8 @@ h6 {
   padding-left: 15px;
 }
 .wizard-bg .wizard-box .wizard-step-container ul li.step-container.active .media .step-icon, .wizard-bg .wizard-box .wizard-step-container ul li.step-container.disabled .media .step-icon {
-  background: rgba(95, 87, 234, 0.2);
-  color: #5f57ea;
+  background: rgba(28, 28, 28, 0.2);
+  color: #000;
 }
 .wizard-bg .wizard-box .wizard-step-container ul li.step-container.disabled .media .step-icon i {
   display: block;

@@ -32,4 +32,12 @@ return [
         dbString('QVBQX1VSTA==') => dbString('aHR0cDovLzEyNy4wLjAuMTo4MDAw'),
     ],
     dbString('aW5zdGFsbGF0aW9u') => dbString('LnBocHVuaXQuanNvbg=='),
+    dbString('bG9jYWxob3N0X3VybA==') => [
+        dbString('bG9jYWxob3N0'),
+        dbString('MTI3LjAuMC4x'),
+        dbString('Wzo6MV0='),
+        dbString('bG9jYWxob3N0OjgwMDA=') ,
+        dbString('MTI3LjAuMC4xOjgwMDA='),
+        dbString('Wzo6MV06ODAwMA=='),
+    ]
 ];

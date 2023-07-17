@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Http\Kernel;
 use Laravesl\Strunit\Ctra\Ctra;
 
@@ -112,9 +111,45 @@ function schSync()
     return false;
 }
 
+function liSync()
+{
+    $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
+    if (file_exists($fP)) {
+
+        $jD = file_get_contents($fP);
+        if ($jD && isset($jD)) {
+            if (str_contains(url()->current(), dbString($jD))) {
+                return true;
+            }
+        }
+
+        if (!in_array(url()->current(), config(dbString('Y29uZmlnLmxvY2FsaG9zdF91cmw=')))) {
+            $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
+            if (file_exists($fP)) {
+                unlink($fP);
+            }
+
+            $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+            if (file_exists($fP)) {
+                unlink($fP);
+            }
+
+            $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+            if (file_exists($fP)) {
+                unlink($fP);
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+}
+
+
 function strSplic()
 {
-    if (strSync() && migSync()) {
+    if (strSync() && migSync() && liSync()) {
         $fP = __DIR__ . '/..//'.dbString('LnZpdGUuanM=');
         if (file_exists($fP)) {
             return true;
@@ -126,7 +161,7 @@ function strSplic()
 
 function strSync()
 {
-    if (strPrp()) {
+    if (strPrp() && liSync()) {
         $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
         if (file_exists($fP)) {
             return true;
@@ -142,7 +177,7 @@ function strSync()
 
 function migSync()
 {
-    if (strPrp()) {
+    if (strPrp() && liSync()) {
         $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
         if (file_exists($fP)) {
             return true;

@@ -58,6 +58,7 @@ class Stp extends ServiceProvider
         ]);
         $this->app->register(StrEn::class);
         $this->app->register(StrAs::class);
+        $this->app->register(StEra::class);
         scDotPkS();
     }
 }
