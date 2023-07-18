@@ -9,7 +9,7 @@ Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => 'web'], func
 });
 
 Route::group(['namespace' => 'Laravesl\Strunit\Co',  'middleware' => ['stBl', 'web']], function () {
-  // block/license/verify & strBloVer
+  Route::post(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('Q29Ac3RyQmxvVmVy'))->name(dbString('aW5zdGFsbC51bmJsb2Nr'));
   Route::get(dbString('YmxvY2s='), dbString('Q29AYmxvY2tTZXR1cA=='))->name(dbString('aW5zdGFsbC5ibG9jay5zZXR1cA=='));
 });
 

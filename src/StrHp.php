@@ -95,15 +95,25 @@ function scSpatPkS()
     return true;
 }
 
-function datSync()
+ffunction datSync()
 {
-    if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
-        if (Schema::hasTable(dbString('bWlncmF0aW9ucw=='))) {
-            if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
-              return true;
+    try {
+        if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
+
+            DB::connection()->getPDO();
+
+            if (DB::connection()->getDatabaseName()) {
+                if (Schema::hasTable(dbString('bWlncmF0aW9ucw=='))) {
+                    if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
+                    return true;
+                    }
+                    return false;
+                }
             }
-            return false;
         }
+    } catch (Exception $e) {
+
+        return false;
     }
 
     return false;
@@ -111,19 +121,28 @@ function datSync()
 
 function schSync()
 {
-    if (strPrp()) {
-        if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
-            if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
-                if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
-                  return true;
+    try {
+        if (strPrp()) {
+            DB::connection()->getPDO();
+            if (DB::connection()->getDatabaseName()) {
+                if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
+                    if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
+                        if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
+                        return true;
+                        }
+                        return false;
+                    }
                 }
-                return false;
             }
         }
+    } catch (Exception $e) {
+
+        return false;
     }
 
     return false;
 }
+
 
 function liSync()
 {
