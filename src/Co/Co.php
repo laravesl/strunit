@@ -139,11 +139,12 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
         } elseif (!liSync()) {
             return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));
-        } elseif  (strPrp()) {
-
-            $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
-            if (!file_exists($filePath)) {
-                file_put_contents($filePath, null);
+        } elseif  (datSync()) {
+            if (!migSync()) {
+                $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+                if (!file_exists($filePath)) {
+                    file_put_contents($filePath, null);
+                }
             }
 
             return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));

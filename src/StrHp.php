@@ -95,6 +95,20 @@ function scSpatPkS()
     return true;
 }
 
+function datSync()
+{
+    if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
+        if (Schema::hasTable(dbString('bWlncmF0aW9ucw=='))) {
+            if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
+              return true;
+            }
+            return false;
+        }
+    }
+
+    return false;
+}
+
 function schSync()
 {
     if (strPrp()) {
