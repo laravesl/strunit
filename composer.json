@@ -8,8 +8,8 @@
             "name": "laravesl"
         }
     ],
+    "version":"1.0.1",
     "minimum-stability": "stable",
-    "version":"1.0.0",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
