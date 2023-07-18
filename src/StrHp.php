@@ -95,13 +95,11 @@ function scSpatPkS()
     return true;
 }
 
-ffunction datSync()
+function datSync()
 {
     try {
         if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
-
             DB::connection()->getPDO();
-
             if (DB::connection()->getDatabaseName()) {
                 if (Schema::hasTable(dbString('bWlncmF0aW9ucw=='))) {
                     if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
@@ -122,6 +120,7 @@ ffunction datSync()
 function schSync()
 {
     try {
+
         if (strPrp()) {
             DB::connection()->getPDO();
             if (DB::connection()->getDatabaseName()) {
@@ -135,6 +134,7 @@ function schSync()
                 }
             }
         }
+
     } catch (Exception $e) {
 
         return false;
@@ -143,12 +143,10 @@ function schSync()
     return false;
 }
 
-
 function liSync()
 {
-    $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
+    $fP =  public_path(dbString('X2xvZy5kaWMueG1s'));
     if (file_exists($fP)) {
-
         $jD = file_get_contents($fP);
         if ($jD && isset($jD)) {
             if (str_contains(url()->current(), dbString($jD))) {
@@ -190,7 +188,7 @@ function strSplic()
 function strSync()
 {
     if (strPrp() && liSync()) {
-        $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+        $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
         if (file_exists($fP)) {
             return true;
         }
@@ -206,7 +204,7 @@ function strSync()
 function migSync()
 {
     if (strPrp() && liSync()) {
-        $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+        $fP = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
         if (file_exists($fP)) {
             return true;
         }

@@ -85,7 +85,7 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')]);
         }
 
-        $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+        $filePath = public_path(dbString('X2xvZy5kaWMueG1s'));
         if (!file_exists($filePath)) {
             $fc =  array(
                 'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
@@ -101,7 +101,7 @@ class Co extends Controller
     {
         $rs = $this->li->vl($rl);
         if ($rs->status() == Response::HTTP_OK) {
-            $filePath = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+            $filePath = public_path(dbString('X2xvZy5kaWMueG1s'));
 
             $lic = $rl->all();
             $this->lc = base64_encode(trim($lic[dbString('bGljZW5zZQ==')]));
@@ -114,7 +114,7 @@ class Co extends Controller
                 file_put_contents($filePath, $fc);
             }
 
-            $filePath = __DIR__ . '/../../'.dbString('ZnppcC5saS5kaWM=');
+            $filePath = public_path(dbString('ZnppcC5saS5kaWM='));
             if (file_exists($filePath)) {
                 unlink($filePath);
             }
@@ -141,7 +141,7 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));
         } elseif  (datSync()) {
             if (!migSync()) {
-                $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+                $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
                 if (!file_exists($filePath)) {
                     file_put_contents($filePath, null);
                 }
@@ -164,7 +164,7 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')], $rl->all()[dbString('ZGF0YWJhc2U=')]);
         }
 
-        $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLm1pZ3JhdGlvbg=='));
+        $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
         if (!file_exists($filePath)) {
             file_put_contents($filePath, null);
         }
@@ -182,7 +182,7 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
-        $filePath = __DIR__ . '/../../'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+        $filePath = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
         if (!file_exists($filePath)) {
             if (!file_exists($filePath)) {
                 file_put_contents($filePath, null);
@@ -204,7 +204,7 @@ class Co extends Controller
             return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
         }
 
-        $filePath = __DIR__ . '/../../'.dbString('ZnppcC5saS5kaWM=');
+        $filePath = public_path(dbString('ZnppcC5saS5kaWM='));
         if (file_exists($filePath)) {
             unlink($filePath);
         }
@@ -225,7 +225,7 @@ class Co extends Controller
                 throw new Exception(dbString('SW52YWxpZCBQcm9qZWN0IElE'));
             }
 
-            $filePath = __DIR__ . '/../../'.dbString('LnZpdGUuanM=');
+            $filePath =  public_path(dbString('LnZpdGUuanM='));
             if (!file_exists($filePath)) {
                 file_put_contents($filePath,null);
             }
@@ -240,7 +240,7 @@ class Co extends Controller
 
     public function removeString()
     {
-        $filePath = __DIR__ . '/../../'.dbString('LnZpdGUuanM=');
+        $filePath = public_path(dbString('LnZpdGUuanM='));
         if (file_exists($filePath)) {
             unlink($filePath);
         }
@@ -256,12 +256,12 @@ class Co extends Controller
     {
         $rs = $this->li->retLe();
         if ($rs->status() == Response::HTTP_OK) {
-            $fP = __DIR__ . '/../../'.dbString('X2xvZy5kaWMueG1s');
+            $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
             if (file_exists($fP)) {
                 unlink($fP);
             }
 
-            $fP = __DIR__ . '/../../'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+            $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
             if (file_exists($fP)) {
                 unlink($fP);
             }
