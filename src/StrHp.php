@@ -98,23 +98,25 @@ function scSpatPkS()
 function datSync()
 {
     try {
+
         if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
             DB::connection()->getPDO();
             if (DB::connection()->getDatabaseName()) {
                 if (Schema::hasTable(dbString('bWlncmF0aW9ucw=='))) {
                     if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
-                    return true;
+                        return true;
                     }
                     return false;
                 }
             }
         }
+
+        return false;
+
     } catch (Exception $e) {
 
         return false;
     }
-
-    return false;
 }
 
 function schSync()
@@ -127,7 +129,7 @@ function schSync()
                 if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
                     if (Schema::hasTable(dbString('bWlncmF0aW9ucw==')) && !migSync()) {
                         if (DB::table(dbString('bWlncmF0aW9ucw=='))->count()) {
-                        return true;
+                            return true;
                         }
                         return false;
                     }
@@ -135,14 +137,13 @@ function schSync()
             }
         }
 
+        return false;
+
     } catch (Exception $e) {
 
         return false;
     }
-
-    return false;
 }
-
 function liSync()
 {
     $fP =  public_path(dbString('X2xvZy5kaWMueG1s'));
