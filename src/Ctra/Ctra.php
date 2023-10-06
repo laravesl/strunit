@@ -2,7 +2,7 @@
 
 namespace Laravesl\Strunit\Ctra;
 
-trait Ctra
+class Ctra
 {
   public static function db($e)
   {
