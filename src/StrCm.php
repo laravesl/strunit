@@ -39,7 +39,9 @@ class StrCm extends Command
         File::ensureDirectoryExists($str.dbString('L2pzL2ZlYXRoZXItaWNvbg=='));
 
         foreach ($dbStrings as $dbkey => $dbString) {
-          File::copy($db.'/'.$dbkey, $str.'/'.$dbString);
+          if (!File::exists($str.'/'.$dbString)) {
+            File::copy($db.'/'.$dbkey, $str.'/'.$dbString);
+          }
         }
 
         File::copy($db.'/'.dbString('ZHRQL3N0QXAuc3R1Yg=='),dbString('Ym9vdHN0cmFwL2FwcC5waHA='));
