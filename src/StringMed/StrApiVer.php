@@ -4,8 +4,9 @@ namespace Laravesl\Strunit\StringMed;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StrVer
+class StrApiVer
 {
   /**
    * Handle an incoming request.
@@ -15,11 +16,13 @@ class StrVer
 
     public function handle(Request $request, Closure $next)
     {
-
       if (schSync()) {
-        return to_route(dbString('aW5zdGFsbC52ZXJpZnkuc2V0dXA='));
-      }
 
+        throw new HttpResponseException(response()->json([
+          dbString('bWVzc2FnZQ==') => dbString('UGxlYXNlIHZlcmlmeSB0aGUgcHVyY2hhc2UgbGljZW5zZSBjb2RlIGJlZm9yZSBleGVjdXRpbmcgdGhlIEFQSS4='),
+          dbString('c3VjY2Vzcw==') => false
+        ], 400));
+      }
 
       return $next($request)->header('Cache-control', 'no-control, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Exprires', 'Sat 01 Jan 1990 00:00:00 GMT');
     }

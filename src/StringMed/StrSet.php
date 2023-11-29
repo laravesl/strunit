@@ -14,6 +14,7 @@ class StrSet
      */
     public function handle(Request $request, Closure $next)
     {
+
       if (!strSync()) {
         return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
       }

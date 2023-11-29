@@ -5,6 +5,9 @@ namespace Laravesl\Strunit\Co;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Routing\Controller;
 use Laravesl\Strunit\StringReq\StrConDb;
 use Laravesl\Strunit\StringReq\StrR;
@@ -12,6 +15,8 @@ use Laravesl\Strunit\StringReq\StrVerR;
 use Laravesl\Strunit\StrPro\Str;
 use Laravesl\Strunit\StrPro\StrConf;
 use Laravesl\Strunit\StrPro\StrDb;
+use Illuminate\Support\Facades\Route;
+
 
 class Co extends Controller
 {
@@ -119,7 +124,7 @@ class Co extends Controller
                 unlink($filePath);
             }
 
-            $fc =  array(
+            $fc = array(
                 'dHlwZQ==' => $this->lc,
             );
 
@@ -155,13 +160,30 @@ class Co extends Controller
 
     public function CoDatSet(StrConDb $rl)
     {
-        $conn = $this->da->databaseSetup($rl->all()[dbString('ZGF0YWJhc2U=')]);
+        $conn = $this->da->databaseSetup($rl->all());
         if ($conn != null) {
             return back()->with(dbString('ZXJyb3I='), $conn);
         }
 
-        if (scSpatPkS()) {
+        if (!$rl->has(dbString('aXNfaW1wb3J0X2RhdGE='))) {
+            Artisan::call(dbString('ZGI6c2VlZA=='));
+        }
+
+        if (scSpatPkS() && !$rl->has(dbString('aXNfaW1wb3J0X2RhdGE='))) {
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')], $rl->all()[dbString('ZGF0YWJhc2U=')]);
+        }
+
+        if ($rl->has(dbString('aXNfaW1wb3J0X2RhdGE='))) {
+            if (isset($rl->all()[dbString('ZGF0YWJhc2U=')])) {
+                $this->da->databaseConfiguration($rl->all()[dbString('ZGF0YWJhc2U=')]);
+                $this->da->sqliSetup($rl->all()[dbString('ZGF0YWJhc2U=')]);
+
+                if (file_exists(public_path(dbString('ZGIuc3Fs')))) {
+                    Artisan::call(dbString('ZGI6d2lwZQ=='));
+                    $sql = File::get(public_path(dbString('ZGIuc3Fs')));
+                    DB::unprepared($sql);
+                }
+            }
         }
 
         $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
@@ -173,6 +195,7 @@ class Co extends Controller
             $this->da->env($rl->all()[dbString('ZGF0YWJhc2U=')]);
         }
 
+        Artisan::call(dbString('c3RvcmFnZTpsaW5r'));
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
     }
 
@@ -200,6 +223,7 @@ class Co extends Controller
     public function strBloVer(StrR $rl)
     {
         $rs = $this->li->vl($rl);
+
         if ($rs->status() != Response::HTTP_OK) {
             return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
         }
@@ -214,7 +238,11 @@ class Co extends Controller
 
         file_put_contents($filePath, $fc);
         $this->removeString();
-        return to_route(dbString('bG9naW4='));
+        if (Route::has(dbString('bG9naW4='))) {
+            return to_route(dbString('bG9naW4='));
+        }
+
+        return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
     }
 
     public function blockLicense(Request $rl)
@@ -240,7 +268,8 @@ class Co extends Controller
 
     public function removeString()
     {
-        $filePath = public_path(dbString('LnZpdGUuanM='));
+        // $filePath = public_path(dbString('LnZpdGUuanM='));
+        $filePath = __DIR__ . '/../..//'.dbString('LnZpdGUuanM=');
         if (file_exists($filePath)) {
             unlink($filePath);
         }
