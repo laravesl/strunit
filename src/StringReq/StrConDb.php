@@ -35,15 +35,16 @@ class StrConDb extends FormRequest
             dbString('YWRtaW4uZmlyc3RfbmFtZQ==') => 'required', 'max:255',
             dbString('YWRtaW4ubGFzdF9uYW1l') => 'required', 'max:255',
             dbString('YWRtaW4uZW1haWw=') => 'required', 'email', 'max:255',
-            dbString('YWRtaW4ucGFzc3dvcmQ=') => 'reuired', 'confirmed', 'min:8',
+            dbString('YWRtaW4ucGFzc3dvcmQ=') => 'required', 'min:8',
+            dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u') => 'required', 'confirmed', 'min:8',
         ];
 
         if (scDotPkS()) {
-            return array_merge($stConDb, $scDot);
+            $stConDb = array_merge($stConDb, $scDot);
         }
 
-        if (scSpatPkS()) {
-            return array_merge($stConDb, $scSpat);
+        if (scSpatPkS() && !$this->has(dbString('aXNfaW1wb3J0X2RhdGE='))) {
+            $stConDb = array_merge($stConDb, $scSpat);
         }
 
         return $stConDb;
@@ -61,6 +62,7 @@ class StrConDb extends FormRequest
             dbString('YWRtaW4ubGFzdF9uYW1l') => dbString('bGFzdCBuYW1l'),
             dbString('YWRtaW4uZW1haWw=') => dbString('ZW1haWw='),
             dbString('YWRtaW4ucGFzc3dvcmQ=') => dbString('cGFzc3dvcmQ='),
+            dbString('YWRtaW4ucGFzc3dvcmRfY29uZmlybWF0aW9u') =>  dbString('cGFzc3dvcmQgY29uZmlybWF0aW9uIA==')
         ];
     }
 

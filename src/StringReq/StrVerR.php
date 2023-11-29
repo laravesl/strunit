@@ -23,7 +23,6 @@ class StrVerR extends FormRequest
      */
     public function rules()
     {
-
         $scSpat = [
             dbString('YWRtaW4uZmlyc3RfbmFtZQ==') => 'required|max:255',
             dbString('YWRtaW4ubGFzdF9uYW1l') => 'required', 'max:255',
@@ -38,7 +37,7 @@ class StrVerR extends FormRequest
         ];
 
         if (scSpatPkS()) {
-            return array_merge($strVeR, $scSpat);
+            $strVeR = array_merge($strVeR, $scSpat);
         }
 
         return $strVeR;

@@ -10,6 +10,10 @@ use Laravesl\Strunit\StringMed\StrBl;
 use Laravesl\Strunit\StringMed\StRed;
 use Laravesl\Strunit\StringMed\StrSet;
 use Laravesl\Strunit\StringMed\StrVer;
+use Laravesl\Strunit\StringMed\StrApiSet;
+use Laravesl\Strunit\StringMed\StrApiVer;
+use Laravesl\Strunit\StringMed\StrAipBl;
+use Laravesl\Strunit\StringMed\StrWBl;
 
 class Stp extends ServiceProvider
 {
@@ -49,10 +53,18 @@ class Stp extends ServiceProvider
             \Illuminate\View\Middleware\ShareErrorsFromSession::class
         ]);
 
-        $router->aliasMiddleware('stBl', StrBl::class,);
+        $router->aliasMiddleware('stBl', StrBl::class);
+        $router->aliasMiddleware('stWBl', StrWBl::class);
         $router->middlewareGroup('web', [
             StrSet::class,
             StrVer::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class
+        ]);
+        $router->middlewareGroup('api', [
+            StrApiSet::class,
+            StrApiVer::class,
+            StrAipBl::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class
         ]);

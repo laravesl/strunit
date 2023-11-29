@@ -2,8 +2,8 @@
 
 namespace Laravesl\Strunit\StrPro;
 
-use App\Models\User;
 use Exception;
+use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -19,12 +19,11 @@ class StrDb
 {
     public function databaseSetup($database)
     {
-        $this->databaseConfiguration($database);
+        $this->databaseConfiguration($database[dbString('ZGF0YWJhc2U=')]);
         try {
 
-            $this->sqliSetup($database);
+            $this->sqliSetup($database[dbString('ZGF0YWJhc2U=')]);
             Artisan::call('migrate:fresh');
-            Artisan::call('db:seed');
 
         } catch (Exception $e) {
 
@@ -34,66 +33,58 @@ class StrDb
 
     public function sqliSetup($database)
     {
-        new \mysqli($database['DB_HOST'], $database['DB_USERNAME'],
-                $database['DB_PASSWORD'], $database['DB_DATABASE'],
-                $database['DB_PORT']);
+        new \mysqli($database[dbString('REJfSE9TVA==')], $database[dbString('REJfVVNFUk5BTUU=')],
+                $database[dbString('REJfUEFTU1dPUkQ=')], $database[dbString('REJfREFUQUJBU0U=')],
+                $database[dbString('REJfUE9SVA==')]);
     }
 
     public function databaseConfiguration($database)
     {
         config([
-            'database.default' => 'mysql',
-            'database.connections.mysql.host' => $database['DB_HOST'],
-            'database.connections.mysql.port' => $database['DB_PORT'],
-            'database.connections.mysql.database' => $database['DB_DATABASE'],
-            'database.connections.mysql.username' => $database['DB_USERNAME'],
-            'database.connections.mysql.password' => $database['DB_PASSWORD'],
+            dbString('ZGF0YWJhc2UuZGVmYXVsdA==') => dbString('bXlzcWw='),
+            dbString('ZGF0YWJhc2UuY29ubmVjdGlvbnMubXlzcWwuaG9zdA==') => $database[dbString('REJfSE9TVA==')],
+            dbString('ZGF0YWJhc2UuY29ubmVjdGlvbnMubXlzcWwucG9ydA==') => $database[dbString('REJfUE9SVA==')],
+            dbString('ZGF0YWJhc2UuY29ubmVjdGlvbnMubXlzcWwuZGF0YWJhc2U=') => $database[dbString('REJfREFUQUJBU0U=')],
+            dbString('ZGF0YWJhc2UuY29ubmVjdGlvbnMubXlzcWwudXNlcm5hbWU=') => $database[dbString('REJfVVNFUk5BTUU=')],
+            dbString('ZGF0YWJhc2UuY29ubmVjdGlvbnMubXlzcWwucGFzc3dvcmQ=') => $database[dbString('REJfUEFTU1dPUkQ=')],
         ]);
 
-        DB::purge('mysql');
-        Artisan::call('config:clear');
+        DB::purge(dbString('bXlzcWw='));
+        Artisan::call(dbString('Y29uZmlnOmNsZWFy'));
     }
 
     public function adminSetup($a, $database = null)
     {
-
-        $role = Role::where('name', 'Admin')->first();
+        $role = Role::where(dbString('bmFtZQ=='), dbString('QWRtaW4='))->first();
         if (!$role) {
-            $role = Role::create(['name' => 'Admin']);
+            $role = Role::create([dbString('bmFtZQ==') => dbString('QWRtaW4=')]);
+            $role->givePermissionTo(Permission::all());
         }
 
-        $role->givePermissionTo(Permission::all());
-        $user = User::where('email',  $a['email'])->first();
+        $user = User::whereHas('roles', function($q) {
+            $q->where(dbString('bmFtZQ=='), dbString('QWRtaW4='));
+        })?->first();
+
         if (!$user) {
             $user = User::factory()->create([
-                'name' => $a['first_name'].''.$a['last_name'],
-                'email' => $a['email'],
-                'email_verified_at' => now(),
-                'password' => Hash::make($a['password']),
+                dbString('bmFtZQ==') => $a[dbString('Zmlyc3RfbmFtZQ==')].' '.$a['last_name'],
+                dbString('ZW1haWw=') => $a[dbString('ZW1haWw=')],
+                dbString('ZW1haWxfdmVyaWZpZWRfYXQ=') => now(),
+                dbString('cGFzc3dvcmQ=') => Hash::make($a[dbString('cGFzc3dvcmQ=')]),
+                dbString(dbString('c3lzdGVtX3Jlc2VydmU=')) => true,
             ]);
-        }
-
-        $user->assignRole($role);
-        if ($database) {
-            $this->databaseConfiguration($database);
-            $this->sqliSetup($database);
-        }
-
-        if (file_exists(public_path('chatloop.sql'))) {
-            $sql = File::get(public_path('chatloop.sql'));
-            DB::unprepared($sql);
-            unlink(public_path('chatloop.sql'));
+            $user->assignRole($role);
         }
     }
 
     public function env($database)
     {
         DotenvEditor::setKeys([
-            'DB_HOST' => $database['DB_HOST'],
-            'DB_PORT' => $database['DB_PORT'],
-            'DB_DATABASE' => $database['DB_DATABASE'],
-            'DB_USERNAME' => $database['DB_USERNAME'],
-            'DB_PASSWORD' => $database['DB_PASSWORD'],
+            dbString('REJfSE9TVA==') => $database[dbString('REJfSE9TVA==')],
+            dbString('REJfUE9SVA==') => $database[dbString('REJfUE9SVA==')],
+            dbString('REJfREFUQUJBU0U=') => $database[dbString('REJfREFUQUJBU0U=')],
+            dbString('REJfVVNFUk5BTUU=') => $database[dbString('REJfVVNFUk5BTUU=') ],
+            dbString('REJfUEFTU1dPUkQ=') => $database[dbString('REJfUEFTU1dPUkQ=')],
         ]);
 
         DotenvEditor::save();

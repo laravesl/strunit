@@ -13,7 +13,7 @@ Route::group(['namespace' => 'Laravesl\Strunit\Co',  'middleware' => ['stBl', 'w
   Route::get(dbString('YmxvY2s='), dbString('Q29AYmxvY2tTZXR1cA=='))->name(dbString('aW5zdGFsbC5ibG9jay5zZXR1cA=='));
 });
 
-Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => ['str', 'stBk']], function() {
+Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => ['str', 'stBk','stWBl']], function() {
 
   Route::prefix(dbString('aW5zdGFsbA=='))->group(function () {
     Route::get(dbString('cmVxdWlyZW1lbnRz'), 'Co@stPhExRe')->name(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
