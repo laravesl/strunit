@@ -16,6 +16,17 @@ class StrSet
     {
 
       if (!strSync()) {
+        DB::connection()->getPDO();
+        if (DB::connection()->getDatabaseName()) {
+            if (env(dbString('REJfREFUQUJBU0U=')) && env(dbString('REJfVVNFUk5BTUU=')) && env(dbString('REJfQ09OTkVDVElPTg=='))) {
+                if (Schema::hasTable(dbString('c2VlZGVycw==')) && !migSync()) {
+                  if (DB::table(dbString('c2VlZGVycw=='))->count()) {
+                    return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));;
+                  }
+                }
+            }
+        }
+
         return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
       }
 

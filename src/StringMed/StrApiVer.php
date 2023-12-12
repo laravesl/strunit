@@ -24,6 +24,12 @@ class StrApiVer
         ], 400));
       }
 
-      return $next($request)->header('Cache-control', 'no-control, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Exprires', 'Sat 01 Jan 1990 00:00:00 GMT');
+      $response = $next($request);
+
+      $response->headers->set('Cache-control', 'no-control, no-store, max-age=0, must-revalidate');
+      $response->headers->set('Pragma', 'no-cache');
+      $response->headers->set('Exprires', 'Sat 01 Jan 1990 00:00:00 GMT');
+
+      return $response;
     }
 }

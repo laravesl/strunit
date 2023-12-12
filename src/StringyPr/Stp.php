@@ -2,7 +2,6 @@
 
 namespace Laravesl\Strunit\StringyPr;
 
-use Exception;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Laravesl\Strunit\StringMed\StMed;
@@ -66,6 +65,7 @@ class Stp extends ServiceProvider
             StrApiVer::class,
             StrAipBl::class,
             \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class
         ]);
         $this->app->register(StrEn::class);
