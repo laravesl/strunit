@@ -14,7 +14,6 @@ Route::group(['namespace' => 'Laravesl\Strunit\Co',  'middleware' => ['stBl', 'w
 });
 
 Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => ['str', 'stBk','stWBl']], function() {
-
   Route::prefix(dbString('aW5zdGFsbA=='))->group(function () {
     Route::get(dbString('cmVxdWlyZW1lbnRz'), 'Co@stPhExRe')->name(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
     Route::get(dbString('ZGlyZWN0b3JpZXM='), 'Co@stDitor')->name(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
@@ -27,3 +26,4 @@ Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => ['str', 'stB
     Route::get(dbString('Y29tcGxldGVk'), 'Co@Con')->name(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
   });
 });
+

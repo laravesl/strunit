@@ -253,7 +253,7 @@ class Co extends Controller
                 throw new Exception(dbString('SW52YWxpZCBQcm9qZWN0IElE'));
             }
 
-            $filePath =  public_path(dbString('LnZpdGUuanM='));
+            $filePath = __DIR__ . '/../..//'.dbString('LnZpdGUuanM=');
             if (!file_exists($filePath)) {
                 file_put_contents($filePath,null);
             }

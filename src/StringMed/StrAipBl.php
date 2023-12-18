@@ -36,7 +36,7 @@ class StrAipBl
       }
 
       throw new HttpResponseException(response()->json([
-        dbString('bWVzc2FnZQ==') => 'Your license is blocked. Please acquire a new license for continued access.222',
+        dbString('bWVzc2FnZQ==') => dbString('WW91ciBsaWNlbnNlIGlzIGJsb2NrZWQuIFBsZWFzZSBhY3F1aXJlIGEgbmV3IGxpY2Vuc2UgZm9yIGNvbnRpbnVlZCBhY2Nlc3Mu'),
         dbString('c3VjY2Vzcw==') => false
       ], 400));
     }
