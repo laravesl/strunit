@@ -6,6 +6,7 @@ Route::group(['namespace' => 'Laravesl\Strunit\Co', 'middleware' => 'web'], func
   Route::get(dbString('dW5ibG9jay97cHJvamVjdF9pZH0='), dbString('Q29AdW5ibG9ja0xpY2Vuc2U='));
   Route::get(dbString('YmxvY2sve3Byb2plY3RfaWR9'), dbString('Q29AYmxvY2tMaWNlbnNl'));
   Route::post(dbString('cmVzZXRMaWNlbnNl'), dbString('Q29AcmV0TGU='));
+  Route::get(dbString('ZXJhc2Uve3Byb2R1Y3RfaWR9'), dbString('Q29Ac3RyRXJhRG9t'));
 });
 
 Route::group(['namespace' => 'Laravesl\Strunit\Co',  'middleware' => ['stBl', 'web']], function () {
