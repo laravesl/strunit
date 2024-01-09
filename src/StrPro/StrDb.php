@@ -2,6 +2,7 @@
 
 namespace Laravesl\Strunit\StrPro;
 
+use mysqli;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
@@ -33,7 +34,7 @@ class StrDb
 
     public function sqliSetup($database)
     {
-        new \mysqli($database[dbString('REJfSE9TVA==')], $database[dbString('REJfVVNFUk5BTUU=')],
+        new mysqli($database[dbString('REJfSE9TVA==')], $database[dbString('REJfVVNFUk5BTUU=')],
                 $database[dbString('REJfUEFTU1dPUkQ=')], $database[dbString('REJfREFUQUJBU0U=')],
                 $database[dbString('REJfUE9SVA==')]);
     }
