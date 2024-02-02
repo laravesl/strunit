@@ -5,24 +5,22 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Contracts\Http\Kernel;
 use Laravesl\Strunit\Ctra\Ctra;
 
-if (!function_exists('dbString'))
-{
-  function dbString($expression)
-  {
-    return Ctra::db($expression);
-  }
+if (!function_exists('dbString')) {
+    function dbString($expression)
+    {
+        return Ctra::db($expression);
+    }
 }
 
-if (!function_exists('strPrp'))
-{
-  function strPrp()
-  {
-    if (!env(dbString('QVBQX0lE'))) {
-        throw new Exception(dbString('UmVtb3ZlZCBBUFAgSUQ='), 500);
-    };
+if (!function_exists('strPrp')) {
+    function strPrp()
+    {
+        if (!env(dbString('QVBQX0lE'))) {
+            throw new Exception(dbString('UmVtb3ZlZCBBUFAgSUQ='), 500);
+        };
 
-    return true;
-  }
+        return true;
+    }
 }
 
 function scMePkS()
@@ -112,7 +110,6 @@ function datSync()
         }
 
         return false;
-
     } catch (Exception $e) {
 
         return false;
@@ -138,7 +135,6 @@ function schSync()
         }
 
         return false;
-
     } catch (Exception $e) {
 
         return false;
@@ -151,18 +147,21 @@ function liSync()
     if (file_exists($fP)) {
         $jD = file_get_contents($fP);
         if ($jD && isset($jD)) {
-            if (str_contains(url()->current(), dbString($jD))) {
-                return true;
+            $prsed_ul = parse_url(url()->current());
+            if (isset($prsed_ul[dbString('aG9zdA==')])) {
+                if (str_contains(dbString($jD),$prsed_ul[dbString('aG9zdA==')])) {
+                    return true;
+                }
             }
         }
 
         if (!str_contains(url()->current(), dbString('bG9jYWxob3N0')) && !str_contains(url()->current(), dbString('MTI3LjAuMC4x'))) {
-            $fP = __DIR__ . '/..//'.dbString('X2xvZy5kaWMueG1s');
+            $fP = __DIR__ . '/..//' . dbString('X2xvZy5kaWMueG1s');
             if (file_exists($fP)) {
                 unlink($fP);
             }
 
-            $fP = __DIR__ . '/..//'.config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
+            $fP = __DIR__ . '/..//' . config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg=='));
             if (file_exists($fP)) {
                 unlink($fP);
             }
@@ -178,7 +177,7 @@ function liSync()
 function strSplic()
 {
     if (strSync() && migSync() && liSync()) {
-        $fP = __DIR__ . '/..//'.dbString('LnZpdGUuanM=');
+        $fP = __DIR__ . '/..//' . dbString('LnZpdGUuanM=');
         if (file_exists($fP)) {
             return true;
         }

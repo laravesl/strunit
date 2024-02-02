@@ -275,7 +275,7 @@ class Co extends Controller
             }
 
             $filePath = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
-            if (!file_exists($filePath)) {
+            if (file_exists($filePath)) {
                 unlink($filePath);
             }
 
