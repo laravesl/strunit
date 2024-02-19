@@ -66,32 +66,11 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
         } elseif (!$this->con->iDconF()) {
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
-        }
-
-        if (liSync()) {
+        } else if (liSync()) {
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
-        $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
-        if (file_exists($fP)) {
-            unlink($fP);
-        }
-
-        $fP = public_path(dbString('ZnppcC5saS5kaWM='));
-        if (file_exists($fP)) {
-            unlink($fP);
-        }
-
-        $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
-        if (file_exists($fP)) {
-            unlink($fP);
-        }
-
+        stDelFlResLic();
         return view(dbString('c3R2OjpzdGxpYw=='), [
             dbString('ZGlyZWN0b3JpZXM=') => $this->con->chWr(),
             dbString('Y29uZmlndXJlZA==') => $this->con->iDconF(),
@@ -109,13 +88,13 @@ class Co extends Controller
             $this->da->adminSetup($rl->all()[dbString('YWRtaW4=')]);
         }
 
-        $filePath = public_path(dbString('X2xvZy5kaWMueG1s'));
-        if (!file_exists($filePath)) {
+        $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
+        if (!strFlExs($fP)) {
             $fc =  array(
                 'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
             );
 
-            file_put_contents($filePath, $fc);
+            file_put_contents($fP, $fc);
         }
 
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
@@ -125,30 +104,25 @@ class Co extends Controller
     {
         $rs = $this->li->vl($rl);
         if ($rs->status() == Response::HTTP_OK) {
-            $filePath = public_path(dbString('X2xvZy5kaWMueG1s'));
 
+            $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
             $lic = $rl->all();
             $this->lc = base64_encode(trim($lic[dbString('bGljZW5zZQ==')]));
 
-            if (!file_exists($filePath)) {
+            if (!file_exists($fP)) {
                 $fc =  array(
                     'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
                 );
 
-                file_put_contents($filePath, $fc);
+                file_put_contents($fP, $fc);
             }
 
-            $filePath = public_path(dbString('ZnppcC5saS5kaWM='));
-            if (file_exists($filePath)) {
-                unlink($filePath);
-            }
-
+            strFilRM(public_path(dbString('ZnppcC5saS5kaWM=')));
             $fc = array(
                 'dHlwZQ==' => $this->lc,
             );
 
-            file_put_contents($filePath, $fc);
-
+            file_put_contents($fP, $fc);
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
@@ -165,9 +139,9 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5saWNlbnNl'));
         } elseif (datSync()) {
             if (!migSync()) {
-                $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
-                if (!file_exists($filePath)) {
-                    file_put_contents($filePath, null);
+                $fP = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
+                if (!strFlExs($fP)) {
+                    file_put_contents($fP, null);
                 }
             }
 
@@ -205,9 +179,9 @@ class Co extends Controller
             }
         }
 
-        $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
-        if (!file_exists($filePath)) {
-            file_put_contents($filePath, null);
+        $fP = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
+        if (!strFlExs($fP)) {
+            file_put_contents($fP, null);
         }
 
         if (scDotPkS()) {
@@ -218,19 +192,15 @@ class Co extends Controller
         return to_route(dbString('aW5zdGFsbC5jb21wbGV0ZWQ='));
     }
 
-
-
     public function Con()
     {
         if (!migSync()) {
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
-        $filePath = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
-        if (!file_exists($filePath)) {
-            if (!file_exists($filePath)) {
-                file_put_contents($filePath, null);
-            }
+        $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
+        if (!strFlExs($fP)) {
+            file_put_contents($fP, null);
         }
 
         return view(dbString('c3R2Ojpjbw=='));
@@ -244,21 +214,19 @@ class Co extends Controller
     public function strBloVer(StrR $rl)
     {
         $rs = $this->li->vl($rl);
-
         if ($rs->status() != Response::HTTP_OK) {
             return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
         }
 
-        $filePath = public_path(dbString('ZnppcC5saS5kaWM='));
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
+        $fP = public_path(dbString('ZnppcC5saS5kaWM='));
+        strFilRM($fP);
+
         $fc =  array(
             'dHlwZQ==' => base64_encode($this->lc),
         );
 
-        file_put_contents($filePath, $fc);
-        $this->removeString();
+        file_put_contents($fP, $fc);
+        $this->rmStrig();
         if (Route::has(dbString('bG9naW4='))) {
             return to_route(dbString('bG9naW4='));
         }
@@ -274,31 +242,9 @@ class Co extends Controller
                 throw new Exception(dbString('SW52YWxpZCBQcm9qZWN0IElE'));
             }
 
-            $filePath = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
-            if (file_exists($filePath)) {
-                unlink($filePath);
-            }
-
-            $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
-            $fP = public_path(dbString('ZnppcC5saS5kaWM='));
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
-            $filePath = public_path(config(dbString('Y29uZmlnLm1pZ3JhdGlvbg==')));
-            if (file_exists($filePath)) {
-                unlink($filePath);
-            }
-
-            $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
+            $fP = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
+            strFilRM($fP);
+            stDelFlResLic();
             return response()->json(['success' => true], 200);
         } catch (Exception $e) {
 
@@ -314,9 +260,9 @@ class Co extends Controller
                 throw new Exception(dbString('SW52YWxpZCBQcm9qZWN0IElE'));
             }
 
-            $filePath = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
-            if (!file_exists($filePath)) {
-                file_put_contents($filePath, null);
+            $fP = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
+            if (!strFlExs($fP)) {
+                file_put_contents($fP, null);
             }
 
             return response()->json(['success' => true], 200);
@@ -326,20 +272,15 @@ class Co extends Controller
         }
     }
 
-
-
-    public function removeString()
+    public function rmStrig()
     {
-        // $filePath = public_path(dbString('LnZpdGUuanM='));
-        $filePath = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
+        $fP = __DIR__ . '/../..//' . dbString('LnZpdGUuanM=');
+        strFilRM($fP);
     }
 
     public function unblockLicense()
     {
-        $this->removeString();
+        $this->rmStrig();
         return response()->json(['success' => true], 200);
     }
 
@@ -347,16 +288,7 @@ class Co extends Controller
     {
         $rs = $this->li->retLe();
         if ($rs->status() == Response::HTTP_OK) {
-            $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
-            $fP = public_path(config(dbString('Y29uZmlnLmluc3RhbGxhdGlvbg==')));
-            if (file_exists($fP)) {
-                unlink($fP);
-            }
-
+            stDelFlResLic();
             return back()->with(dbString('ZXJyb3I='), dbString('TGljZW5zZSBSZXNldCBTdWNjZXNzZnVsbHkh'));
         }
 
