@@ -126,7 +126,9 @@ class Co extends Controller
                 return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
             }
 
-            return back()->with(dbString('ZXJyb3I='), json_decode($rs?->getBody(), true)['message']);
+            if (json_decode($rs?->getBody(), true)) {
+                return back()->with(dbString('ZXJyb3I='), json_decode($rs?->getBody(), true)['message']);
+            }
         }
 
         return back()->with(dbString('ZXJyb3I='), $rs);
@@ -178,6 +180,7 @@ class Co extends Controller
                     Artisan::call(dbString('ZGI6d2lwZQ=='));
                     $sql = File::get(public_path(dbString('ZGIuc3Fs')));
                     DB::unprepared($sql);
+                    imIMgDuy();
                 }
             }
         }

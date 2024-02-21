@@ -256,4 +256,42 @@ function migSync()
     return false;
 }
 
+if (!function_exists('imIMgDuy'))
+{
+  function imIMgDuy()
+  {
+    if (env(dbString('RFVNTVlfSU1BR0VTX1VSTA=='))) {
+        $sP = storage_path(dbString('YXBwL3B1YmxpYw=='));
+        if (!file_exists($sP)) {
+            mkdir($sP, 0777, true);
+            $rePose = Http::timeout(0)->get(env(dbString('RFVNTVlfSU1BR0VTX1VSTA==')));
+            if ($rePose?->successful()) {
+                $fN = basename(env(dbString('RFVNTVlfSU1BR0VTX1VSTA==')));
+                $zFP = $sP . '/' . $fN;
+                file_put_contents($zFP, $rePose?->getBody());
+                if (iZf($zFP)) {
+                    $zp = new ZipArchive;
+                    if ($zp->open($zFP) === TRUE) {
+                        $zp->extractTo($sP);
+                        $zp->close();
+                    }
+                    unlink($zFP);
+                }
+            }
+        }
+    };
 
+    return true;
+  }
+}
+
+if (!function_exists('iZf'))
+{
+  function iZf($fP)
+  {
+    $fio = finfo_open(FILEINFO_MIME_TYPE);
+    $mTy = finfo_file($fio, $fP);
+    finfo_close($fio);
+    return $mTy === dbString('YXBwbGljYXRpb24vemlw');
+  }
+}
