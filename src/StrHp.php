@@ -47,11 +47,7 @@ if (!function_exists('strFilRM')) {
 if (!function_exists('strFlExs')) {
     function strFlExs($fP)
     {
-        if (file_exists($fP)) {
-           return true;
-        }
-
-        return false;
+        return file_exists($fP);
     }
 }
 

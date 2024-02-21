@@ -66,7 +66,9 @@ class Co extends Controller
             return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
         } elseif (!$this->con->iDconF()) {
             return to_route(dbString('aW5zdGFsbC5kaXJlY3Rvcmllcw=='));
-        } else if (liSync()) {
+        }
+
+        if (liSync()) {
             return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
         }
 
@@ -117,7 +119,8 @@ class Co extends Controller
                     file_put_contents($fP, $fc);
                 }
 
-                strFilRM(public_path(dbString('ZnppcC5saS5kaWM=')));
+                $fP = public_path(dbString('ZnppcC5saS5kaWM='));
+                strFilRM($fP);
                 $fc = array(
                     'dHlwZQ==' => $this->lc,
                 );
@@ -131,7 +134,7 @@ class Co extends Controller
             }
         }
 
-        return back()->with(dbString('ZXJyb3I='), $rs);
+        return back()->with(dbString('ZXJyb3I='), json_decode($rs?->getBody(), true) ?? dbString('U29tZXRoaW5nIFdlbnQgd3Jvbmc='));
     }
 
     public function stDatSet()
