@@ -103,30 +103,33 @@ class Co extends Controller
     public function stliSet(StrR $rl)
     {
         $rs = $this->li->vl($rl);
-        if ($rs->status() == Response::HTTP_OK) {
+        if ($rs) {
+            if ($rs?->status() == Response::HTTP_OK) {
+                $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
+                $lic = $rl->all();
+                $this->lc = base64_encode(trim($lic[dbString('bGljZW5zZQ==')]));
 
-            $fP = public_path(dbString('X2xvZy5kaWMueG1s'));
-            $lic = $rl->all();
-            $this->lc = base64_encode(trim($lic[dbString('bGljZW5zZQ==')]));
+                if (!file_exists($fP)) {
+                    $fc =  array(
+                        'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
+                    );
 
-            if (!file_exists($fP)) {
-                $fc =  array(
-                    'dHlwZQ==' => base64_encode(str_replace(array(dbString('YmxvY2svbGljZW5zZS92ZXJpZnk='), dbString('aW5zdGFsbC9saWNlbnNl'), dbString('aW5zdGFsbC92ZXJpZnk=')), '', url()->current())),
+                    file_put_contents($fP, $fc);
+                }
+
+                strFilRM(public_path(dbString('ZnppcC5saS5kaWM=')));
+                $fc = array(
+                    'dHlwZQ==' => $this->lc,
                 );
 
                 file_put_contents($fP, $fc);
+                return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
             }
 
-            strFilRM(public_path(dbString('ZnppcC5saS5kaWM=')));
-            $fc = array(
-                'dHlwZQ==' => $this->lc,
-            );
-
-            file_put_contents($fP, $fc);
-            return to_route(dbString('aW5zdGFsbC5kYXRhYmFzZQ=='));
+            return back()->with(dbString('ZXJyb3I='), json_decode($rs?->getBody(), true)['message']);
         }
 
-        return back()->with(dbString('ZXJyb3I='), json_decode($rs->getBody(), true)['message']);
+        return back()->with(dbString('ZXJyb3I='), $rs);
     }
 
     public function stDatSet()
