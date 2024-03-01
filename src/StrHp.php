@@ -3,6 +3,7 @@
 use Laravesl\Strunit\Ctra\Ctra;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
 
 if (!function_exists('dbString')) {
