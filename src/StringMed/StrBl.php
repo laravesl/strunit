@@ -15,7 +15,6 @@ class StrBl
      */
     public function handle(Request $request, Closure $next)
     {
-
       if (!strSplic()) {
         if (Route::has(dbString('bG9naW4='))) {
           return to_route(dbString('bG9naW4='));

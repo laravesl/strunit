@@ -5,13 +5,12 @@ namespace Laravesl\Strunit\StrPro;
 use mysqli;
 use Exception;
 use App\Models\User;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Jackiedo\DotenvEditor\Facades\DotenvEditor;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use Jackiedo\DotenvEditor\Facades\DotenvEditor;
 
 /**
  * Database configuration

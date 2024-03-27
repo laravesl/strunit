@@ -16,7 +16,6 @@ class StrSet
      */
     public function handle(Request $request, Closure $next)
     {
-
       if (!strSync()) {
         DB::connection()->getPDO();
         if (DB::connection()->getDatabaseName()) {

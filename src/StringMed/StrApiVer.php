@@ -17,7 +17,6 @@ class StrApiVer
     public function handle(Request $request, Closure $next)
     {
       if (schSync()) {
-
         throw new HttpResponseException(response()->json([
           dbString('bWVzc2FnZQ==') => dbString('UGxlYXNlIHZlcmlmeSB0aGUgcHVyY2hhc2UgbGljZW5zZSBjb2RlIGJlZm9yZSBleGVjdXRpbmcgdGhlIEFQSS4='),
           dbString('c3VjY2Vzcw==') => false

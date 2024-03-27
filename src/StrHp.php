@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Request;
 
 if (!function_exists('dbString')) {
     function dbString($expression)
@@ -153,6 +154,7 @@ function datSync()
         }
 
         return false;
+
     } catch (Exception $e) {
 
         return false;
@@ -191,11 +193,11 @@ function liSync()
     if (strFlExs($fP)) {
         $jD = file_get_contents($fP);
         if ($jD && isset($jD)) {
-            $prsed_ul = parse_url(url()->current());
-            if (isset($prsed_ul[dbString('aG9zdA==')])) {
-                if (str_contains(dbString($jD),$prsed_ul[dbString('aG9zdA==')])) {
-                    return true;
-                }
+            $cUl = Request::url();
+            $cHtne = parse_url($cUl, PHP_URL_HOST);
+            $dHtne = parse_url(dbString($jD), PHP_URL_HOST);
+            if ($cHtne === $dHtne || ($cHtne === "www." . $dHtne) || ("www." . $cHtne === $dHtne)) {
+                return true;
             }
         }
 
@@ -221,7 +223,6 @@ function strSplic()
             return true;
         }
     }
-
 
     return false;
 }
