@@ -62,6 +62,7 @@ class Co extends Controller
 
     public function stLis()
     {
+        //testing
         if (!$this->con->conF()) {
             return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
         } elseif (!$this->con->iDconF()) {
