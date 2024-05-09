@@ -196,7 +196,7 @@ function liSync()
             $cUl = Request::url();
             $cHtne = parse_url($cUl, PHP_URL_HOST);
             $dHtne = parse_url(dbString($jD), PHP_URL_HOST);
-            if ($cHtne === $dHtne || ($cHtne === "www." . $dHtne) || ("www." . $cHtne === $dHtne)) {
+            if ($cHtne == $dHtne || ($cHtne == "www." . $dHtne) || ("www." . $cHtne == $dHtne)) {
                 return true;
             }
         }
