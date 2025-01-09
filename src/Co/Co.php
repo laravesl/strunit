@@ -46,7 +46,7 @@ class Co extends Controller
     public function stDitor()
     {
 
-        // Version 11
+        // Version 11 (1.0.4)
         if (!$this->con->conF()) {
             return to_route(dbString('aW5zdGFsbC5yZXF1aXJlbWVudHM='));
         }
